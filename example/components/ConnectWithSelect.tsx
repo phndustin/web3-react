@@ -3,7 +3,7 @@ import type { Web3ReactHooks } from '@web3-react/core'
 import { GnosisSafe } from '@web3-react/gnosis-safe'
 import type { MetaMask } from '@web3-react/metamask'
 import { Network } from '@web3-react/network'
-import { WalletConnect } from '@web3-react/walletconnect'
+// import { WalletConnect } from '@web3-react/walletconnect'
 import { WalletConnect as WalletConnectV2 } from '@web3-react/walletconnect-v2'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -50,7 +50,7 @@ export function ConnectWithSelect({
   error,
   setError,
 }: {
-  connector: MetaMask | WalletConnect | WalletConnectV2 | CoinbaseWallet | Network | GnosisSafe
+  connector: MetaMask | WalletConnectV2 | CoinbaseWallet | Network | GnosisSafe
   activeChainId: ReturnType<Web3ReactHooks['useChainId']>
   chainIds?: ReturnType<Web3ReactHooks['useChainId']>[]
   isActivating: ReturnType<Web3ReactHooks['useIsActivating']>

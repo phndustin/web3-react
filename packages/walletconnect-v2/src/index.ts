@@ -131,14 +131,18 @@ export class WalletConnect extends Connector {
    * @param desiredChainId - The desired chainId to connect to.
    */
   public async activate(desiredChainId?: number): Promise<void> {
+    console.log('toan 1')
     const provider = await this.isomorphicInitialize(desiredChainId)
 
     if (provider.session) {
+      console.log('toan 2')
       if (!desiredChainId || desiredChainId === provider.chainId) return
+      console.log('toan 3')
       // WalletConnect exposes connected accounts, not chains: `eip155:${chainId}:${address}`
       const isConnectedToDesiredChain = provider.session.namespaces.eip155.accounts.some((account) =>
         account.startsWith(`eip155:${desiredChainId}:`)
       )
+      console.log('toan 4')
       if (!isConnectedToDesiredChain) {
         if (this.options.optionalChains?.includes(desiredChainId)) {
           throw new Error(
@@ -149,6 +153,7 @@ export class WalletConnect extends Connector {
           `Unknown chain (${desiredChainId}). Make sure to include any chains you might connect to in the "chains" or "optionalChains" parameters when initializing WalletConnect.`
         )
       }
+      console.log('toan 5')
       return provider.request<void>({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: `0x${desiredChainId.toString(16)}` }],
