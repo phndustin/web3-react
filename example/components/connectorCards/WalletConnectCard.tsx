@@ -1,4 +1,4 @@
-import { URI_AVAILABLE } from '@web3-react/walletconnect'
+// import { URI_AVAILABLE } from '@web3-react/walletconnect'
 import { useEffect, useState } from 'react'
 
 import { hooks, walletConnect } from '../../connectors/walletConnect'
